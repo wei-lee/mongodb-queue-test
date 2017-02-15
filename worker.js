@@ -61,11 +61,9 @@ function processMessage(queue, msg, cb){
   log(`processing messsage id = ${msg.id} payload = ${msg.payload.count} tries = ${msg.tries}`);
   setTimeout(() => {
     queue.ack(msg.ack, (err, id) => {
-      if (err) {
-        log(`Failed to ack message due to error ${err}`);
-      } else {
-        log(`processed message id = ${msg.id} payload = ${msg.payload.count}`);
-      }
+      // if (err) {
+      //   log(`Failed to ack message due to error ${err}`);
+      // }
       return cb();
     });
   }, Math.random()*1500);
